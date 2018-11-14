@@ -1,11 +1,18 @@
 $(document).ready(function() {
+  var wins = 0;
+  var losses = 0;
+  
 
 function startGame() {
-  var counter = 0
+  round++
+ 
+  
+  var counter = 0;
   var targetNumber = Math.ceil(Math.random()*101)+19
   console.log(targetNumber)
   $("#number-to-guess").html('Power to Generate :'+ targetNumber);
   $("#powerGenerated").html('Power Generated :'+ counter);
+  $("#win-loss").html('Wins :'+wins+ " Losses: "+ losses);
   var crystalValue = []
   for (let i = 0; i < 4; i++) {
     crystalValue[i] = Math.floor(Math.random()*12+1)
@@ -25,18 +32,29 @@ function startGame() {
     alert("New score: " + counter);
 
     if (counter === targetNumber) {
-      alert("You win!");
+      wins++
+      alert("You Win!")
+      
     }
   
     else if (counter >= targetNumber) {
-      alert("You lose!!");
+      losses++
+      alert("You Lose!")
+      
     }
-  
+    $("#win-loss").html('Wins :'+wins+ " Losses: "+ losses);
+
+    return
   });
   
 
   }
-startGame();
+  startGame();
+  //reset game still needs work
+  
+
+
+
 })
 
 // var targetNumber = 53;
