@@ -1,19 +1,43 @@
 $(document).ready(function() {
 
 function startGame() {
+  var counter = 0
   var targetNumber = Math.ceil(Math.random()*101)+19
   console.log(targetNumber)
   $("#number-to-guess").html('Power to Generate :'+ targetNumber);
+  $("#powerGenerated").html('Power Generated :'+ counter);
   var crystalValue = []
   for (let i = 0; i < 4; i++) {
     crystalValue[i] = Math.floor(Math.random()*12+1)
   } 
-    console.log(crystalValue[0])
-    console.log(crystalValue[1])
-    console.log(crystalValue[2])
-}
+    for (var i = 0; i < crystalValue.length; i++) {
+      var imageCrystal = $("<img>");
+      imageCrystal.addClass("crystal-image")
+      imageCrystal.attr("src", "assets/images/crystal"+i+".png")
+      imageCrystal.attr("data-crystalvalue", crystalValue[i]);
+      $("#crystals").append(imageCrystal);  
+    }
+    $(".crystal-image").on("click", function() {
+    var crystalVal = ($(this).attr("data-crystalvalue"));
+    crystalVal = parseInt(crystalVal);
+    counter += crystalVal;
+    $("#powerGenerated").html('Power Generated :'+ counter);
+    alert("New score: " + counter);
+
+    if (counter === targetNumber) {
+      alert("You win!");
+    }
+  
+    else if (counter >= targetNumber) {
+      alert("You lose!!");
+    }
+  
+  });
+  
+
+  }
 startGame();
-});
+})
 
 // var targetNumber = 53;
 

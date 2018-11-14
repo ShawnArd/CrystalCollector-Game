@@ -1,7 +1,12 @@
+body {
+   background-image: url("../images/CrystalGem.jpg");
+}
+
 #theme {
     text-align: center;
     width: 60%;
     margin: 0 auto;
+    
 }
 
 
@@ -10,8 +15,30 @@
     height: 300px;
 }
 #number-to-guess{
-    font-size: 30px;
+    font-size: 20px;
+}
+.container {
+    vertical-align: center;
 }
 #crystals {
-    float: left;
+    width: 60%;
+    margin: 0 auto;
+}
+.crystal-image{
+    width: 25%;
+    height:150px;
+}
+.powerBox {
+    
+    vertical-align: middle;
+    font-size: 20px;
+    padding-top: 15px;
+    height: 60px;
+    background: rgba(77, 255, 255, 0.5);
+    border: 3px solid yellow;
+}
+.jumbotron {
+    background: rgba(77, 255, 255, 0.5);
+    border: 3px solid yellow;
+
 }
